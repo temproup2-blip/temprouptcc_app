@@ -1,0 +1,1870 @@
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #f5f7fb;
+    color: #222;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TELA INICIAL
+========================================================= */
+
+.tela-inicial {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #071b72;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+.inicio-conteudo {
+    width: 100%;
+    max-width: 430px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagem-inicial {
+    width: 100%;
+    max-width: 400px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+}
+
+.botoes-inicial {
+    width: 100%;
+    max-width: 340px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.botoes-inicial button {
+    width: 100%;
+    height: 58px;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.btn-cadastrar {
+    background: white;
+    color: #071b72;
+    border: none;
+}
+
+.btn-entrar {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-cadastrar:hover {
+    transform: scale(1.03);
+}
+
+.btn-entrar:hover {
+    background: white;
+    color: #071b72;
+}
+
+
+/* =========================================================
+   FORMULÁRIOS
+========================================================= */
+
+.tela-formulario {
+    display: none;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f5f7fb;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 430px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .12);
+}
+
+.logo-form {
+    text-align: center;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    margin-bottom: 25px;
+}
+
+.logo-form span {
+    color: #071b72;
+}
+
+.logo-form strong {
+    color: #ff7900;
+}
+
+.formulario h1 {
+    text-align: center;
+
+    color: #071b72;
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    text-align: center;
+
+    color: #777;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    color: #222;
+}
+
+.campo input {
+    width: 100%;
+    height: 50px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 0 14px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #071b72;
+}
+
+.senha {
+    position: relative;
+}
+
+.senha input {
+    padding-right: 50px;
+}
+
+.senha button {
+    position: absolute;
+
+    right: 5px;
+    top: 5px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+}
+
+.termos {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin: 10px 0 20px;
+
+    font-size: 12px;
+
+    color: #555;
+}
+
+.termos span {
+    color: #071b72;
+    font-weight: bold;
+}
+
+.btn-principal {
+    width: 100%;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #071b72;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.btn-principal:hover {
+    background: #ff7900;
+}
+
+.esqueceu {
+    text-align: right;
+
+    color: #071b72;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin: -5px 0 20px;
+}
+
+.troca {
+    text-align: center;
+
+    margin-top: 18px;
+
+    color: #555;
+
+    font-size: 13px;
+}
+
+.troca span {
+    color: #071b72;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.voltar {
+    display: block;
+
+    margin: 18px auto 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+}
+
+.ou {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 30px 0 20px;
+}
+
+.ou span {
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd;
+}
+
+.ou p {
+    font-size: 12px;
+    color: #777;
+}
+
+.sociais {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.sociais button {
+    width: 80px;
+    height: 50px;
+
+    border: 2px solid #ddd;
+
+    background: white;
+
+    border-radius: 10px;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   APLICATIVO
+========================================================= */
+
+.site {
+    display: none;
+
+    min-height: 100vh;
+
+    background: #f5f7fb;
+}
+
+.app-header {
+    width: 100%;
+
+    height: 72px;
+
+    background: #071b72;
+
+    color: white;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+.header-logo {
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+.header-logo span {
+    color: #ff7900;
+}
+
+.header-carrinho {
+    position: relative;
+
+    border: none;
+
+    background: rgba(255,255,255,.12);
+
+    color: white;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+}
+
+.header-carrinho span {
+    position: absolute;
+
+    right: -3px;
+    top: -3px;
+
+    background: #ff7900;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.app-content {
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 30px 20px 110px;
+}
+
+.app-tela {
+    display: none;
+
+    animation: aparecer .25s ease;
+}
+
+.app-tela.ativa {
+    display: block;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   INÍCIO
+========================================================= */
+
+.saudacao {
+    margin-bottom: 25px;
+}
+
+.saudacao p:first-child {
+    color: #777;
+
+    font-size: 14px;
+}
+
+.saudacao h1 {
+    color: #071b72;
+
+    font-size: 28px;
+
+    margin: 4px 0;
+}
+
+.saudacao p:last-child {
+    color: #777;
+}
+
+.temperatura-card {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
+
+    margin-bottom: 25px;
+}
+
+.temperatura-icon {
+    font-size: 42px;
+}
+
+.temperatura-card small {
+    display: block;
+
+    color: #888;
+
+    margin-bottom: 3px;
+}
+
+.temperatura-card strong {
+    display: block;
+
+    color: #071b72;
+
+    font-size: 27px;
+}
+
+.temperatura-card span:last-child {
+    color: #555;
+
+    font-size: 13px;
+}
+
+.banner-app {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    min-height: 310px;
+
+    background: #071b72;
+
+    margin-bottom: 30px;
+}
+
+.banner-app img {
+    width: 100%;
+    height: 310px;
+
+    object-fit: cover;
+
+    opacity: .72;
+}
+
+.banner-texto {
+    position: absolute;
+
+    left: 30px;
+    bottom: 30px;
+
+    max-width: 480px;
+
+    color: white;
+}
+
+.banner-texto span {
+    color: #ff7900;
+
+    font-weight: bold;
+
+    font-size: 12px;
+}
+
+.banner-texto h2 {
+    font-size: 30px;
+
+    margin: 7px 0 15px;
+}
+
+.banner-texto button {
+    border: none;
+
+    background: #ff7900;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+}
+
+.titulo-secao {
+    color: #071b72;
+
+    font-size: 20px;
+
+    margin: 25px 0 15px;
+}
+
+.atalhos {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.atalhos button {
+    border: none;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
+    transition: .2s;
+}
+
+.atalhos button:hover {
+    transform: translateY(-3px);
+}
+
+.atalhos span {
+    display: block;
+
+    font-size: 30px;
+
+    margin-bottom: 12px;
+}
+
+.atalhos strong {
+    display: block;
+
+    color: #071b72;
+
+    margin-bottom: 5px;
+}
+
+.atalhos small {
+    color: #777;
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.tela-titulo {
+    margin-bottom: 25px;
+}
+
+.icone-titulo {
+    font-size: 35px;
+}
+
+.tela-titulo h1 {
+    color: #071b72;
+
+    font-size: 30px;
+
+    margin: 5px 0;
+}
+
+.tela-titulo p {
+    color: #777;
+}
+
+
+/* =========================================================
+   LOJA
+========================================================= */
+
+.filtros {
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    margin-bottom: 20px;
+}
+
+.filtro {
+    border: 1px solid #ddd;
+
+    background: white;
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    white-space: nowrap;
+}
+
+.filtro.ativo {
+    background: #071b72;
+
+    color: white;
+
+    border-color: #071b72;
+}
+
+.produto-card {
+    background: white;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 25px rgba(0,0,0,.07);
+
+    margin-bottom: 25px;
+}
+
+.produto-imagem {
+    position: relative;
+}
+
+.produto-imagem img {
+    width: 100%;
+
+    height: 330px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.produto-tag {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    background: #ff7900;
+
+    color: white;
+
+    padding: 7px 12px;
+
+    border-radius: 15px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+.produto-info {
+    padding: 25px;
+}
+
+.produto-categoria {
+    color: #ff7900;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.produto-info h2 {
+    color: #071b72;
+
+    margin: 7px 0 10px;
+
+    font-size: 24px;
+}
+
+.produto-info p {
+    color: #666;
+
+    line-height: 1.5;
+}
+
+.produto-recursos {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin: 15px 0;
+}
+
+.produto-recursos span {
+    background: #f5f7fb;
+
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    color: #555;
+}
+
+.produto-preco {
+    color: #ff7900;
+
+    font-size: 32px;
+
+    font-weight: bold;
+
+    margin: 15px 0;
+}
+
+.produto-preco span {
+    font-size: 16px;
+}
+
+.botao-comprar {
+    width: 100%;
+
+    border: none;
+
+    background: #071b72;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 25px;
+
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.botao-comprar:hover {
+    background: #ff7900;
+}
+
+.detalhes-produto {
+    display: none;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
+}
+
+.detalhes-produto.aberto {
+    display: block;
+}
+
+.detalhes-produto h2 {
+    color: #071b72;
+
+    margin-bottom: 8px;
+}
+
+.detalhes-produto h3 {
+    margin: 20px 0 10px;
+}
+
+.opcoes {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.opcoes button {
+    padding: 11px 18px;
+
+    border: 2px solid #ddd;
+
+    background: white;
+
+    border-radius: 10px;
+}
+
+.opcoes button:hover {
+    border-color: #071b72;
+
+    color: #071b72;
+}
+
+.selecionado {
+    background: #f5f7fb;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin: 20px 0;
+}
+
+.selecionado p {
+    margin: 5px 0;
+}
+
+
+/* =========================================================
+   SUGESTÕES
+========================================================= */
+
+.clima-sugestao {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.clima-sugestao > span {
+    font-size: 40px;
+}
+
+.clima-sugestao small {
+    display: block;
+
+    color: #888;
+}
+
+.clima-sugestao strong {
+    display: block;
+
+    color: #071b72;
+
+    font-size: 28px;
+}
+
+.sugestao-principal {
+    background: #071b72;
+
+    color: white;
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    display: flex;
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+.grande-icone {
+    font-size: 65px;
+}
+
+.tag-sugestao {
+    color: #ff7900;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+.sugestao-principal h2 {
+    margin: 5px 0 8px;
+}
+
+.sugestao-principal p {
+    color: #e4e7ff;
+
+    line-height: 1.5;
+}
+
+.motivos {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 10px 20px;
+
+    margin-bottom: 20px;
+}
+
+.motivos div {
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee;
+
+    color: #555;
+}
+
+.motivos div:last-child {
+    border-bottom: none;
+}
+
+.motivos span {
+    color: #ff7900;
+
+    font-weight: bold;
+
+    margin-right: 8px;
+}
+
+.botao-principal {
+    width: 100%;
+
+    border: none;
+
+    background: #071b72;
+
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 25px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   MINHA ROUPA
+========================================================= */
+
+.adicionar-roupa {
+    width: 100%;
+
+    border: 2px dashed #071b72;
+
+    background: white;
+
+    color: #071b72;
+
+    padding: 17px;
+
+    border-radius: 15px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.adicionar-roupa span {
+    font-size: 22px;
+
+    margin-right: 5px;
+}
+
+.form-roupa {
+    display: none;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+}
+
+.form-roupa.aberto {
+    display: block;
+}
+
+.form-roupa h2 {
+    color: #071b72;
+
+    margin-bottom: 15px;
+}
+
+.form-roupa input,
+.form-roupa select {
+    width: 100%;
+
+    height: 48px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 0 12px;
+
+    margin-bottom: 12px;
+
+    outline: none;
+}
+
+.form-acoes {
+    display: flex;
+
+    gap: 10px;
+}
+
+.form-acoes button {
+    flex: 1;
+
+    border: none;
+
+    padding: 12px;
+
+    border-radius: 20px;
+
+    background: #071b72;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+.form-acoes button:last-child {
+    background: #eee;
+
+    color: #555;
+}
+
+.lista-roupas {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.roupa-card {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.05);
+}
+
+.roupa-icone {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 15px;
+
+    background: #eef1ff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+.roupa-card h3 {
+    color: #071b72;
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.roupa-card p {
+    color: #777;
+
+    font-size: 12px;
+
+    margin-bottom: 8px;
+}
+
+.roupa-card button {
+    border: none;
+
+    background: transparent;
+
+    color: #ff7900;
+
+    font-weight: bold;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ESTATÍSTICAS
+========================================================= */
+
+.estatisticas-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.estatistica {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.05);
+}
+
+.estatistica span {
+    display: block;
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+.estatistica strong {
+    display: block;
+
+    color: #071b72;
+
+    font-size: 25px;
+}
+
+.estatistica small {
+    color: #777;
+
+    font-size: 11px;
+}
+
+.grafico-card,
+.historico-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+}
+
+.grafico-card h2,
+.historico-card h2 {
+    color: #071b72;
+
+    font-size: 19px;
+
+    margin-bottom: 25px;
+}
+
+.grafico {
+    height: 250px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-around;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.barra {
+    height: 100%;
+
+    width: 10%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.barra span {
+    font-size: 10px;
+
+    color: #777;
+}
+
+.barra i {
+    display: block;
+
+    width: 70%;
+
+    background: #071b72;
+
+    border-radius: 8px 8px 0 0;
+}
+
+.barra small {
+    margin-bottom: -20px;
+
+    color: #777;
+}
+
+.historico-card p {
+    padding: 13px 0;
+
+    border-bottom: 1px solid #eee;
+
+    color: #555;
+}
+
+.historico-card p:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PERFIL
+========================================================= */
+
+.perfil-topo {
+    background: #071b72;
+
+    color: white;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #071b72;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+
+    margin: auto auto 15px;
+}
+
+.perfil-topo h1 {
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+.perfil-topo p {
+    color: #dce1ff;
+
+    font-size: 13px;
+}
+
+.perfil-menu {
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.perfil-menu button {
+    width: 100%;
+
+    border: none;
+
+    border-bottom: 1px solid #eee;
+
+    background: white;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: left;
+}
+
+.perfil-menu button:last-child {
+    border-bottom: none;
+}
+
+.perfil-menu button > span {
+    font-size: 23px;
+}
+
+.perfil-menu button div {
+    flex: 1;
+}
+
+.perfil-menu strong {
+    display: block;
+
+    color: #071b72;
+
+    margin-bottom: 4px;
+}
+
+.perfil-menu small {
+    color: #888;
+}
+
+.perfil-menu b {
+    color: #aaa;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   MENU INFERIOR
+========================================================= */
+
+.menu-inferior {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 75px;
+
+    background: white;
+
+    border-top: 1px solid #e8e8e8;
+
+    display: flex;
+
+    justify-content: center;
+
+    z-index: 500;
+
+    box-shadow:
+        0 -5px 20px rgba(0,0,0,.05);
+}
+
+.menu-item {
+    width: 130px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #888;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+}
+
+.menu-item span {
+    font-size: 21px;
+}
+
+.menu-item small {
+    font-size: 10px;
+}
+
+.menu-item.ativo {
+    color: #071b72;
+}
+
+.menu-item.ativo span {
+    color: #ff7900;
+}
+
+
+/* =========================================================
+   CARRINHO
+========================================================= */
+
+.carrinho-box {
+    position: fixed;
+
+    top: 0;
+    right: -430px;
+
+    width: 400px;
+
+    height: 100vh;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 25px;
+
+    overflow-y: auto;
+
+    transition: .35s;
+
+    box-shadow:
+        -10px 0 35px rgba(0,0,0,.18);
+}
+
+.carrinho-box.ativo {
+    right: 0;
+}
+
+.topo-carrinho {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.topo-carrinho small {
+    color: #ff7900;
+
+    font-weight: bold;
+}
+
+.topo-carrinho h2 {
+    color: #071b72;
+
+    margin-top: 3px;
+}
+
+.topo-carrinho button {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ff7900;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+.item {
+    background: #f5f6fa;
+
+    padding: 15px;
+
+    border-radius: 14px;
+
+    margin-bottom: 12px;
+}
+
+.item h4 {
+    color: #071b72;
+
+    margin-bottom: 8px;
+}
+
+.item p {
+    color: #666;
+
+    font-size: 13px;
+
+    margin: 5px 0;
+}
+
+.item button {
+    border: none;
+
+    background: #ff7900;
+
+    color: white;
+
+    padding: 7px 12px;
+
+    border-radius: 8px;
+
+    margin-top: 8px;
+}
+
+.carrinho-vazio {
+    text-align: center;
+
+    color: #888;
+
+    padding: 50px 10px;
+}
+
+.carrinho-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-top: 1px solid #eee;
+
+    margin-top: 20px;
+
+    padding-top: 20px;
+}
+
+.carrinho-total span {
+    color: #777;
+}
+
+.carrinho-total strong {
+    color: #ff7900;
+
+    font-size: 25px;
+}
+
+.finalizar {
+    width: 100%;
+
+    border: none;
+
+    background: #071b72;
+
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 25px;
+
+    margin-top: 20px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   MENSAGEM
+========================================================= */
+
+.mensagem {
+    position: fixed;
+
+    bottom: 95px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 14px 22px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    display: none;
+
+    z-index: 20000;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.2);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .atalhos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lista-roupas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .estatisticas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .app-header {
+        padding: 0 18px;
+    }
+
+    .app-content {
+        padding:
+            25px
+            15px
+            105px;
+    }
+
+    .saudacao h1 {
+        font-size: 24px;
+    }
+
+    .banner-app {
+        min-height: 280px;
+    }
+
+    .banner-app img {
+        height: 280px;
+    }
+
+    .banner-texto {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .banner-texto h2 {
+        font-size: 23px;
+    }
+
+    .atalhos {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .atalhos button {
+        padding: 15px;
+    }
+
+    .atalhos span {
+        font-size: 25px;
+    }
+
+    .produto-imagem img {
+        height: 250px;
+    }
+
+    .produto-info h2 {
+        font-size: 21px;
+    }
+
+    .sugestao-principal {
+        align-items: flex-start;
+    }
+
+    .grande-icone {
+        font-size: 45px;
+    }
+
+    .lista-roupas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .estatisticas-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .carrinho-box {
+        width: 100%;
+
+        right: -100%;
+    }
+
+    .menu-inferior {
+        height: 70px;
+    }
+
+    .menu-item {
+        width: 20%;
+    }
+
+    .menu-item span {
+        font-size: 19px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .formulario {
+        padding: 28px 20px;
+    }
+
+    .formulario h1 {
+        font-size: 24px;
+    }
+
+    .logo-form {
+        font-size: 30px;
+    }
+
+    .tela-titulo h1 {
+        font-size: 26px;
+    }
+
+    .lista-roupas {
+        grid-template-columns: 1fr;
+    }
+
+    .estatisticas-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .estatistica {
+        padding: 15px 8px;
+    }
+
+    .estatistica strong {
+        font-size: 21px;
+    }
+
+    .estatistica small {
+        font-size: 9px;
+    }
+
+}
