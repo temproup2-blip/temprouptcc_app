@@ -1,4 +1,4 @@
-const CACHE_NAME = "temp-roup-v1";
+const CACHE_NAME = "temp-roup-v2";
 
 const ARQUIVOS = [
     "./",
