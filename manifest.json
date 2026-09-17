@@ -1,0 +1,10 @@
+{
+  "name": "Temp.Roup",
+  "short_name": "Temp.Roup",
+  "description": "Aplicativo de roupa inteligente Temp.Roup",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#071b72",
+  "theme_color": "#071b72",
+  "orientation": "portrait"
+}
