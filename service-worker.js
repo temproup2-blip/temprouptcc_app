@@ -6,6 +6,8 @@ const ARQUIVOS = [
     "./style.css",
     "./script.js",
     "./manifest.json",
+    "./icon-192.png",
+    "./icon-512.png",
     "./tela-inicial.png",
     "./banner-temp-roup.jpeg",
     "./blusa-temp-roup.jpeg"
