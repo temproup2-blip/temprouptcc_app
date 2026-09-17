@@ -1,5 +1,9 @@
 // ===============================
-// NAVEGAÇÃO DAS TELAS
+// TEMP.ROU​P - SCRIPT.JS
+// ===============================
+
+// ===============================
+// NAVEGAÇÃO ENTRE TELAS
 // ===============================
 
 function mostrarCadastro() {
@@ -36,18 +40,18 @@ function cadastrar() {
     const confirmarSenha = document.getElementById("confirmarSenha").value;
     const termos = document.getElementById("aceitarTermos");
 
-    if (!nome || !email || !senha || !confirmarSenha) {
+    if (nome === "" || email === "" || senha === "" || confirmarSenha === "") {
         mostrarMensagem("Preencha todos os campos.", "red");
+        return;
+    }
+
+    if (senha !== confirmarSenha) {
+        mostrarMensagem("As senhas não são iguais.", "red");
         return;
     }
 
     if (!termos.checked) {
         mostrarMensagem("Aceite os termos para continuar.", "red");
-        return;
-    }
-
-    if (senha !== confirmarSenha) {
-        mostrarMensagem("As senhas não coincidem.", "red");
         return;
     }
 
@@ -72,22 +76,17 @@ function entrar() {
     const email = document.getElementById("loginEmail").value.trim();
     const senha = document.getElementById("loginSenha").value;
 
-    const emailCadastrado = localStorage.getItem("email");
-    const senhaCadastrada = localStorage.getItem("senha");
+    const emailSalvo = localStorage.getItem("email");
+    const senhaSalva = localStorage.getItem("senha");
 
-    if (!email || !senha) {
-        mostrarMensagem("Preencha o e-mail e a senha.", "red");
-        return;
-    }
-
-    if (email === emailCadastrado && senha === senhaCadastrada) {
+    if (email === emailSalvo && senha === senhaSalva) {
 
         document.getElementById("inicio").style.display = "none";
         document.getElementById("cadastro").style.display = "none";
         document.getElementById("login").style.display = "none";
         document.getElementById("site").style.display = "block";
 
-        mostrarMensagem("Login realizado com sucesso!", "green");
+        atualizarCarrinho();
 
     } else {
         mostrarMensagem("E-mail ou senha incorretos.", "red");
@@ -100,20 +99,20 @@ function entrar() {
 // ===============================
 
 function loginGoogle() {
-    mostrarMensagem("Login com Google em desenvolvimento.", "orange");
+    mostrarMensagem("Login com Google em desenvolvimento.", "#f28c28");
 }
 
 function loginFacebook() {
-    mostrarMensagem("Login com Facebook em desenvolvimento.", "orange");
+    mostrarMensagem("Login com Facebook em desenvolvimento.", "#f28c28");
 }
 
 function loginApple() {
-    mostrarMensagem("Login com Apple em desenvolvimento.", "orange");
+    mostrarMensagem("Login com Apple em desenvolvimento.", "#f28c28");
 }
 
 
 // ===============================
-// MOSTRAR / OCULTAR SENHA
+// MOSTRAR / ESCONDER SENHA
 // ===============================
 
 function mostrarSenha(id) {
@@ -159,23 +158,17 @@ function selecionarTamanho(tamanho) {
 
     tamanhoSelecionado = tamanho;
 
-    document.querySelectorAll(".tamanho").forEach(botao => {
+    const tamanhoAtual = document.getElementById("tamanhoSelecionado");
+
+    if (tamanhoAtual) {
+        tamanhoAtual.textContent = tamanho;
+    }
+
+    document.querySelectorAll(".tamanho-btn").forEach(botao => {
         botao.classList.remove("selecionado");
     });
 
-    const botoes = document.querySelectorAll(".tamanho");
-
-    botoes.forEach(botao => {
-        if (botao.textContent.trim() === tamanho) {
-            botao.classList.add("selecionado");
-        }
-    });
-
-    const tamanhoTexto = document.getElementById("tamanhoSelecionado");
-
-    if (tamanhoTexto) {
-        tamanhoTexto.textContent = tamanho;
-    }
+    event.target.classList.add("selecionado");
 }
 
 
@@ -183,23 +176,17 @@ function selecionarCor(cor) {
 
     corSelecionada = cor;
 
-    document.querySelectorAll(".cor").forEach(botao => {
+    const corAtual = document.getElementById("corSelecionada");
+
+    if (corAtual) {
+        corAtual.textContent = cor;
+    }
+
+    document.querySelectorAll(".cor-btn").forEach(botao => {
         botao.classList.remove("selecionado");
     });
 
-    const botoes = document.querySelectorAll(".cor");
-
-    botoes.forEach(botao => {
-        if (botao.dataset.cor === cor) {
-            botao.classList.add("selecionado");
-        }
-    });
-
-    const corTexto = document.getElementById("corSelecionada");
-
-    if (corTexto) {
-        corTexto.textContent = cor;
-    }
+    event.target.classList.add("selecionado");
 }
 
 
@@ -225,12 +212,12 @@ function irParaProduto() {
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-
 function salvarCarrinho() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
 
+// Abrir carrinho
 function abrirCarrinho() {
 
     const carrinhoElemento = document.getElementById("carrinho");
@@ -243,6 +230,7 @@ function abrirCarrinho() {
 }
 
 
+// Fechar carrinho
 function fecharCarrinho() {
 
     const carrinhoElemento = document.getElementById("carrinho");
@@ -254,18 +242,18 @@ function fecharCarrinho() {
 
 
 // ===============================
-// ADICIONAR AO CARRINHO
+// ADICIONAR PRODUTO AO CARRINHO
 // ===============================
 
 function adicionarCarrinho() {
 
-    if (!tamanhoSelecionado) {
-        mostrarMensagem("Selecione um tamanho.", "red");
+    if (tamanhoSelecionado === "") {
+        mostrarMensagem("Escolha um tamanho.", "red");
         return;
     }
 
-    if (!corSelecionada) {
-        mostrarMensagem("Selecione uma cor.", "red");
+    if (corSelecionada === "") {
+        mostrarMensagem("Escolha uma cor.", "red");
         return;
     }
 
@@ -280,8 +268,8 @@ function adicionarCarrinho() {
     carrinho.push(produto);
 
     salvarCarrinho();
+
     atualizarCarrinho();
-    abrirCarrinho();
 
     mostrarMensagem("Produto adicionado ao carrinho!", "green");
 }
@@ -333,13 +321,13 @@ function atualizarCarrinho() {
 
     if (totalElemento) {
         totalElemento.textContent =
-            `R$ ${total.toFixed(2).replace(".", ",")}`;
+            "R$ " + total.toFixed(2).replace(".", ",");
     }
 }
 
 
 // ===============================
-// REMOVER ITEM
+// REMOVER PRODUTO
 // ===============================
 
 function removerItem(index) {
@@ -347,9 +335,8 @@ function removerItem(index) {
     carrinho.splice(index, 1);
 
     salvarCarrinho();
-    atualizarCarrinho();
 
-    mostrarMensagem("Produto removido do carrinho.", "orange");
+    atualizarCarrinho();
 }
 
 
@@ -367,6 +354,7 @@ function finalizarCompra() {
     carrinho = [];
 
     salvarCarrinho();
+
     atualizarCarrinho();
 
     mostrarMensagem(
