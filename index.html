@@ -1,506 +1,1077 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#071b72">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Temp.Roup</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#071b72">
+    <meta name="description" content="Temp.Roup - Inteligência que te aquece">
+
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-    <!-- ============================= -->
-    <!-- TELA INICIAL -->
-    <!-- ============================= -->
+    <!-- =====================================================
+         TELA DE ABERTURA
+    ====================================================== -->
 
-    <section id="inicio" class="tela-inicial">
+    <section id="tela-abertura" class="tela-abertura">
 
-        <div class="inicio-conteudo">
+        <img
+            src="./tela-inicial.png"
+            alt="Temp.Roup"
+            class="imagem-abertura"
+        >
 
-            <img
-                src="tela-inicial.png"
-                alt="Temp.Roup"
-                class="imagem-inicial"
-            >
+        <div class="abertura-logo">
+            <h1>TEMP.<span>ROUP</span></h1>
+            <p>INTELIGÊNCIA QUE TE AQUECE</p>
+        </div>
 
-            <div class="botoes-inicial">
+    </section>
 
-                <button
-                    class="btn-cadastrar"
-                    onclick="mostrarCadastro()">
-                    CADASTRAR-SE
-                </button>
 
-                <button
-                    class="btn-entrar"
-                    onclick="mostrarLogin()">
+    <!-- =====================================================
+         TELA DE LOGIN
+    ====================================================== -->
+
+    <section id="tela-login" class="tela-login">
+
+        <div class="login-container">
+
+            <div class="login-logo">
+                <h1>TEMP.<span>ROUP</span></h1>
+                <p>INTELIGÊNCIA QUE TE AQUECE</p>
+            </div>
+
+            <h2>Bem-vindo</h2>
+
+            <p class="login-text">
+                Entre para acessar sua Temp.Roup.
+            </p>
+
+            <form id="form-login">
+
+                <div class="campo">
+                    <label for="loginEmail">E-mail</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="loginSenha">Senha</label>
+
+                    <div class="senha-container">
+                        <input
+                            type="password"
+                            id="loginSenha"
+                            placeholder="Digite sua senha"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="mostrarSenhaBtn"
+                            class="botao-senha"
+                        >
+                            👁
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="botao-principal">
                     ENTRAR
                 </button>
 
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ============================= -->
-    <!-- CADASTRO -->
-    <!-- ============================= -->
-
-    <section id="cadastro" class="tela-formulario" style="display:none;">
-
-        <div class="formulario">
-
-            <h1>TEMP<span>ROUP</span></h1>
-
-            <h2>Criar conta</h2>
-
-            <p>Cadastre-se para continuar</p>
-
-            <form onsubmit="cadastrar(); return false;">
-
-                <label for="cadNome">Nome</label>
-
-                <input
-                    type="text"
-                    id="cadNome"
-                    placeholder="Digite seu nome"
-                >
-
-                <label for="cadEmail">E-mail</label>
-
-                <input
-                    type="email"
-                    id="cadEmail"
-                    placeholder="Digite seu e-mail"
-                >
-
-                <label for="cadSenha">Senha</label>
-
-                <div class="campo-senha">
-
-                    <input
-                        type="password"
-                        id="cadSenha"
-                        placeholder="Digite sua senha"
-                    >
-
-                    <button
-                        type="button"
-                        onclick="mostrarSenha('cadSenha')">
-                        👁
-                    </button>
-
-                </div>
-
-                <label for="confirmarSenha">
-                    Confirmar senha
-                </label>
-
-                <input
-                    type="password"
-                    id="confirmarSenha"
-                    placeholder="Digite a senha novamente"
-                >
-
-                <label class="termos">
-
-                    <input
-                        type="checkbox"
-                        id="aceitarTermos"
-                    >
-
-                    Aceito os termos de uso.
-
-                </label>
-
-                <button
-                    type="submit"
-                    class="btn-principal">
-                    CADASTRAR
-                </button>
+                <p id="mensagem-login" class="mensagem-login"></p>
 
             </form>
 
-            <p class="link-formulario">
-
-                Já possui uma conta?
-
-                <button
-                    type="button"
-                    onclick="mostrarLogin()">
-                    Entrar
-                </button>
-
-            </p>
-
-            <button
-                class="btn-voltar"
-                onclick="mostrarInicio()">
-                ← Voltar
-            </button>
-
         </div>
 
     </section>
 
 
-    <!-- ============================= -->
-    <!-- LOGIN -->
-    <!-- ============================= -->
+    <!-- =====================================================
+         APLICATIVO
+    ====================================================== -->
 
-    <section id="login" class="tela-formulario" style="display:none;">
+    <div id="aplicativo" class="aplicativo">
 
-        <div class="formulario">
+        <!-- MENU LATERAL -->
 
-            <h1>TEMP<span>ROUP</span></h1>
+        <aside class="menu-lateral">
 
-            <h2>Entrar</h2>
-
-            <p>Acesse sua conta</p>
-
-            <form onsubmit="entrar(); return false;">
-
-                <label for="loginEmail">
-                    E-mail
-                </label>
-
-                <input
-                    type="email"
-                    id="loginEmail"
-                    placeholder="Digite seu e-mail"
-                >
-
-                <label for="loginSenha">
-                    Senha
-                </label>
-
-                <div class="campo-senha">
-
-                    <input
-                        type="password"
-                        id="loginSenha"
-                        placeholder="Digite sua senha"
-                    >
-
-                    <button
-                        type="button"
-                        onclick="mostrarSenha('loginSenha')">
-                        👁
-                    </button>
-
-                </div>
-
-                <p class="esqueci-senha">
-                    Esqueci minha senha
-                </p>
-
-                <button
-                    type="submit"
-                    class="btn-principal">
-                    ENTRAR
-                </button>
-
-            </form>
-
-            <div class="ou">
-                <span>ou</span>
-            </div>
-
-            <button
-                class="btn-social"
-                onclick="loginGoogle()">
-                Continuar com Google
-            </button>
-
-            <button
-                class="btn-social"
-                onclick="loginFacebook()">
-                Continuar com Facebook
-            </button>
-
-            <button
-                class="btn-social"
-                onclick="loginApple()">
-                Continuar com Apple
-            </button>
-
-            <p class="link-formulario">
-
-                Ainda não possui uma conta?
-
-                <button
-                    type="button"
-                    onclick="mostrarCadastro()">
-                    Cadastrar
-                </button>
-
-            </p>
-
-            <button
-                class="btn-voltar"
-                onclick="mostrarInicio()">
-                ← Voltar
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- ============================= -->
-    <!-- SITE PRINCIPAL -->
-    <!-- ============================= -->
-
-    <section id="site" style="display:none;">
-
-        <!-- CABEÇALHO -->
-
-        <header class="cabecalho">
-
-            <div class="logo">
-                TEMP<span>ROUP</span>
+            <div class="menu-logo">
+                <h1>TEMP.<span>ROUP</span></h1>
+                <p>SMART CLOTHING</p>
             </div>
 
             <nav>
 
-                <a href="#inicio-site">
-                    Início
-                </a>
+                <button class="menu-item ativo" data-tela="inicio">
+                    <span>⌂</span>
+                    <strong>Início</strong>
+                </button>
 
-                <a href="#loja">
-                    Loja
-                </a>
+                <button class="menu-item" data-tela="estatisticas">
+                    <span>▥</span>
+                    <strong>Estatísticas</strong>
+                </button>
 
-                <a href="#sugestoes">
-                    Sugestões
-                </a>
+                <button class="menu-item" data-tela="minha-roupa">
+                    <span>♧</span>
+                    <strong>Minha Roupa</strong>
+                </button>
 
-                <a href="#minha-roupa">
-                    Minha Roupa
-                </a>
+                <button class="menu-item" data-tela="loja">
+                    <span>🛍</span>
+                    <strong>Loja</strong>
+                </button>
 
-                <a href="#estatisticas">
-                    Estatísticas
-                </a>
+                <button class="menu-item" data-tela="perfil">
+                    <span>♙</span>
+                    <strong>Perfil</strong>
+                </button>
 
-                <a href="#contato">
-                    Contato
-                </a>
-
-                <button
-                    class="btn-carrinho"
-                    onclick="abrirCarrinho()">
-
-                    🛒 Carrinho
-
-                    <span id="contador-carrinho">
-                        0
-                    </span>
-
+                <button class="menu-item" data-tela="configuracoes">
+                    <span>⚙</span>
+                    <strong>Configurações</strong>
                 </button>
 
             </nav>
 
-        </header>
+            <div class="menu-rodape">
+                <button class="menu-item" data-tela="carrinho">
+                    <span>🛒</span>
+                    <strong>Carrinho</strong>
+                    <small id="contador-carrinho">0</small>
+                </button>
+            </div>
+
+        </aside>
 
 
-        <!-- ============================= -->
-        <!-- INÍCIO -->
-        <!-- ============================= -->
+        <!-- ÁREA PRINCIPAL -->
 
-        <main id="inicio-site">
+        <main class="conteudo">
 
-            <section class="hero">
+            <!-- CABEÇALHO -->
 
-                <div class="hero-texto">
+            <header class="cabecalho">
 
-                    <h1>
-                        A primeira blusa
-                        inteligente do Brasil
-                    </h1>
+                <div class="cabecalho-esquerda">
 
-                    <p>
-                        Tecnologia, conforto e inovação
-                        em uma única roupa.
-                    </p>
+                    <button id="botao-menu-mobile" class="botao-menu-mobile">
+                        ☰
+                    </button>
 
-                    <button
-                        class="btn-principal"
-                        onclick="irParaProduto()">
-                        CONHECER A BLUSA
+                    <div>
+                        <h2 id="titulo-tela">Início</h2>
+                        <p id="subtitulo-tela">
+                            Controle sua experiência Temp.Roup.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="usuario-topo">
+
+                    <button class="notificacao">
+                        🔔
+                    </button>
+
+                    <div class="usuario-info">
+                        <div class="usuario-avatar">
+                            👤
+                        </div>
+
+                        <div>
+                            <strong id="nome-usuario">
+                                Olá, Usuário
+                            </strong>
+
+                            <small>
+                                Temp.Roup
+                            </small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 INÍCIO
+            ================================================== -->
+
+            <section id="tela-inicio" class="tela ativa">
+
+                <div class="status-desconectada">
+
+                    <span class="status-ponto vermelho"></span>
+
+                    <div>
+                        <strong>Roupa desconectada</strong>
+                        <small>Conectar via Bluetooth</small>
+                    </div>
+
+                    <button id="botao-conectar">
+                        CONECTAR
                     </button>
 
                 </div>
 
-                <div class="hero-imagem">
 
-                    <img
-                        src="banner-temp-roup.jpeg"
-                        alt="Banner Temp.Roup"
+                <!-- PAINEL PRINCIPAL -->
+
+                <div class="painel-principal">
+
+                    <!-- INFORMAÇÕES DA ROUPA -->
+
+                    <div class="card-roupa">
+
+                        <div class="temperatura-info">
+
+                            <span>🌡️</span>
+
+                            <div>
+                                <small>Temperatura atual</small>
+
+                                <strong id="temperatura-atual">
+                                    22°C
+                                </strong>
+
+                                <p id="temperatura-ambiente">
+                                    Ambiente: 18°C
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="imagem-roupa">
+
+                            <img
+                                src="./blusa-temp-roup.jpeg"
+                                alt="Blusa inteligente Temp.Roup"
+                            >
+
+                        </div>
+
+
+                        <div class="sensacao-info">
+
+                            <small>Sensação térmica</small>
+
+                            <strong id="sensacao-termica">
+                                24°C
+                            </strong>
+
+                            <span class="status-confortavel">
+                                Confortável
+                            </span>
+
+                        </div>
+
+
+                        <div class="status-roupa">
+
+                            <small>STATUS DA ROUPA</small>
+
+                            <strong id="status-roupa">
+                                DESCONECTADA
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTROLE DE TEMPERATURA -->
+
+                    <div class="card-controle">
+
+                        <div class="titulo-card">
+                            <span>🌡️</span>
+                            <h3>Controle de temperatura</h3>
+                        </div>
+
+                        <div class="temperatura-controle">
+
+                            <button id="diminuir-temperatura">
+                                −
+                            </button>
+
+                            <div>
+                                <small>Temperatura desejada</small>
+
+                                <strong id="temperatura-desejada">
+                                    24°C
+                                </strong>
+                            </div>
+
+                            <button id="aumentar-temperatura">
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <div class="escala-temperatura">
+
+                            <span>FRIO</span>
+
+                            <div class="linha-temperatura">
+                                <span></span>
+                            </div>
+
+                            <span>QUENTE</span>
+
+                        </div>
+
+
+                        <div class="modos-temperatura">
+
+                            <button
+                                class="modo-btn selecionado"
+                                data-modo="aquecer"
+                            >
+                                🔥
+                                <span>Aquecer</span>
+                            </button>
+
+                            <button
+                                class="modo-btn"
+                                data-modo="resfriar"
+                            >
+                                ❄️
+                                <span>Resfriar</span>
+                            </button>
+
+                            <button
+                                class="modo-btn"
+                                data-modo="automatico"
+                            >
+                                🤖
+                                <span>Automático</span>
+                            </button>
+
+                            <button
+                                class="modo-btn"
+                                data-modo="economico"
+                            >
+                                🌿
+                                <span>Econômico</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARDS INFERIORES -->
+
+                <div class="cards-inferiores">
+
+
+                    <!-- BATERIA -->
+
+                    <div class="card bateria-card">
+
+                        <div class="titulo-card">
+                            <span>🔋</span>
+                            <h3>Bateria</h3>
+                        </div>
+
+                        <div class="bateria-conteudo">
+
+                            <div class="bateria-circulo">
+
+                                <strong id="nivel-bateria">
+                                    78%
+                                </strong>
+
+                            </div>
+
+                            <div>
+
+                                <small>Nível atual</small>
+
+                                <strong class="bateria-status">
+                                    Disponível
+                                </strong>
+
+                                <button
+                                    class="botao-loja"
+                                    data-tela="loja"
+                                >
+                                    Comprar bateria
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONDIÇÕES -->
+
+                    <div class="card condicoes-card">
+
+                        <div class="titulo-card">
+                            <span>☁</span>
+                            <h3>Condições do ambiente</h3>
+                        </div>
+
+                        <div class="condicao">
+
+                            <span>🌡️</span>
+
+                            <div>
+                                <small>Temperatura ambiente</small>
+                                <strong>18°C</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="condicao">
+
+                            <span>💧</span>
+
+                            <div>
+                                <small>Umidade</small>
+                                <strong>45%</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="condicao">
+
+                            <span>💨</span>
+
+                            <div>
+                                <small>Vento</small>
+                                <strong>12 km/h</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXPLICAÇÃO -->
+
+                <div class="card explicacao">
+
+                    <div class="explicacao-texto">
+
+                        <span class="icone-explicacao">
+                            💡
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Como funciona a Temp.Roup?
+                            </h3>
+
+                            <p>
+                                A Temp.Roup utiliza sensores de temperatura
+                                conectados a um ESP32. Os dados são enviados
+                                para o aplicativo por Bluetooth, permitindo
+                                acompanhar as condições térmicas e controlar
+                                o funcionamento da roupa.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="botao-secundario"
+                        data-tela="minha-roupa"
                     >
+                        Conhecer minha roupa
+                    </button>
 
                 </div>
 
             </section>
 
 
-            <!-- ============================= -->
-            <!-- LOJA -->
-            <!-- ============================= -->
+            <!-- =================================================
+                 ESTATÍSTICAS
+            ================================================== -->
 
-            <section id="loja" class="secao">
+            <section id="tela-estatisticas" class="tela">
 
-                <h2>Loja Temp.Roup</h2>
+                <div class="cabecalho-secao">
 
-                <p>
-                    Encontre produtos inteligentes
-                    para diferentes condições de temperatura.
-                </p>
+                    <div>
+                        <h2>Estatísticas</h2>
 
-                <div class="produto-card">
+                        <p>
+                            Acompanhe o uso da sua Temp.Roup.
+                        </p>
+                    </div>
 
-                    <img
-                        src="blusa-temp-roup.jpeg"
-                        alt="Blusa Inteligente Temp.Roup"
+                    <button class="filtro-periodo">
+                        Últimos 30 dias ▾
+                    </button>
+
+                </div>
+
+
+                <div class="estatisticas-grid">
+
+                    <div class="estatistica-card">
+                        <span>🌡️</span>
+                        <small>Temperatura média</small>
+                        <strong>21°C</strong>
+                        <p>Últimos 30 dias</p>
+                    </div>
+
+                    <div class="estatistica-card">
+                        <span>👕</span>
+                        <small>Roupa mais usada</small>
+                        <strong>Temp.Roup</strong>
+                        <p>14 utilizações</p>
+                    </div>
+
+                    <div class="estatistica-card">
+                        <span>💡</span>
+                        <small>Recomendações</small>
+                        <strong>112</strong>
+                        <p>Recomendações geradas</p>
+                    </div>
+
+                    <div class="estatistica-card">
+                        <span>⏱️</span>
+                        <small>Tempo de utilização</small>
+                        <strong>5h 20min</strong>
+                        <p>Período analisado</p>
+                    </div>
+
+                </div>
+
+
+                <div class="graficos-grid">
+
+                    <div class="card grafico-card">
+
+                        <h3>Uso do aplicativo</h3>
+
+                        <div class="grafico-barras">
+
+                            <span style="height:55%">SEG</span>
+                            <span style="height:75%">TER</span>
+                            <span style="height:45%">QUA</span>
+                            <span style="height:70%">QUI</span>
+                            <span style="height:85%">SEX</span>
+                            <span style="height:60%">SÁB</span>
+                            <span style="height:40%">DOM</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card grafico-card">
+
+                        <h3>Distribuição de temperaturas</h3>
+
+                        <div class="temperaturas-distribuicao">
+
+                            <div class="circulo-grafico">
+                                35%
+                            </div>
+
+                            <div class="legenda-grafico">
+                                <p>🔵 Frio</p>
+                                <p>🟠 Ameno</p>
+                                <p>🔵 Quente</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MINHA ROUPA
+            ================================================== -->
+
+            <section id="tela-minha-roupa" class="tela">
+
+                <div class="cabecalho-secao">
+
+                    <div>
+                        <h2>Minha Roupa</h2>
+
+                        <p>
+                            Gerencie suas roupas inteligentes.
+                        </p>
+                    </div>
+
+                    <button class="botao-principal pequeno">
+                        + Adicionar roupa
+                    </button>
+
+                </div>
+
+
+                <div class="resumo-roupas">
+
+                    <div class="resumo-card">
+                        <span>👕</span>
+                        <small>Total de peças</small>
+                        <strong>1</strong>
+                    </div>
+
+                    <div class="resumo-card">
+                        <span>🌡️</span>
+                        <small>Temperatura coberta</small>
+                        <strong>20°C – 30°C</strong>
+                    </div>
+
+                    <div class="resumo-card">
+                        <span>🔵</span>
+                        <small>Conexão</small>
+                        <strong>Bluetooth</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="guarda-roupa-grid">
+
+                    <div class="roupa-card">
+
+                        <div class="imagem-roupa-card">
+
+                            <img
+                                src="./blusa-temp-roup.jpeg"
+                                alt="Temp.Roup"
+                            >
+
+                            <span class="badge-status">
+                                Smart
+                            </span>
+
+                        </div>
+
+                        <div class="roupa-info">
+
+                            <h3>Blusa Inteligente Temp.Roup</h3>
+
+                            <p>
+                                Temperatura indicada: 20°C – 30°C
+                            </p>
+
+                            <p>
+                                Tecnologia: ESP32 + sensores
+                            </p>
+
+                            <span class="conexao-roupa">
+                                🔴 Desconectada
+                            </span>
+
+                            <button class="botao-secundario">
+                                Conectar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOJA
+            ================================================== -->
+
+            <section id="tela-loja" class="tela">
+
+                <div class="cabecalho-secao">
+
+                    <div>
+                        <h2>Loja Temp.Roup</h2>
+
+                        <p>
+                            Produtos, roupas e peças para sua experiência.
+                        </p>
+                    </div>
+
+                    <button
+                        class="botao-carrinho"
+                        data-tela="carrinho"
                     >
+                        🛒 Carrinho
+                        <span id="contador-loja">0</span>
+                    </button>
+
+                </div>
+
+
+                <div class="destaque-loja">
 
                     <div>
 
-                        <h3>
-                            Blusa Inteligente Temp.Roup
-                        </h3>
-
-                        <p>
-                            Tecnologia pensada para
-                            proporcionar conforto térmico.
-                        </p>
-
-                        <strong>
-                            R$ 299,90
-                        </strong>
-
-                        <br><br>
-
-                        <button
-                            class="btn-principal"
-                            onclick="irParaProduto()">
-                            VER PRODUTO
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ============================= -->
-            <!-- PRODUTO -->
-            <!-- ============================= -->
-
-            <section
-                id="produto"
-                class="secao produto">
-
-                <h2>
-                    Blusa Inteligente Temp.Roup
-                </h2>
-
-                <div class="produto-detalhes">
-
-                    <div class="produto-imagem">
-
-                        <img
-                            src="blusa-temp-roup.jpeg"
-                            alt="Blusa Inteligente"
-                        >
-
-                    </div>
-
-                    <div class="produto-info">
-
-                        <p>
-                            Nossa blusa inteligente foi
-                            desenvolvida para auxiliar no
-                            conforto térmico do usuário.
-                        </p>
-
-                        <h3>Tamanho</h3>
-
-                        <div class="opcoes">
-
-                            <button
-                                onclick="selecionarTamanho('P')">
-                                P
-                            </button>
-
-                            <button
-                                onclick="selecionarTamanho('M')">
-                                M
-                            </button>
-
-                            <button
-                                onclick="selecionarTamanho('G')">
-                                G
-                            </button>
-
-                            <button
-                                onclick="selecionarTamanho('GG')">
-                                GG
-                            </button>
-
-                        </div>
-
-                        <p>
-                            Tamanho selecionado:
-                            <strong id="tamanho-selecionado">
-                                Nenhum
-                            </strong>
-                        </p>
-
-                        <h3>Cor</h3>
-
-                        <div class="opcoes">
-
-                            <button
-                                onclick="selecionarCor('Preto')">
-                                Preto
-                            </button>
-
-                            <button
-                                onclick="selecionarCor('Branco')">
-                                Branco
-                            </button>
-
-                            <button
-                                onclick="selecionarCor('Cinza')">
-                                Cinza
-                            </button>
-
-                        </div>
-
-                        <p>
-                            Cor selecionada:
-                            <strong id="cor-selecionada">
-                                Nenhuma
-                            </strong>
-                        </p>
+                        <span class="etiqueta">
+                            TECNOLOGIA TEMP.ROUP
+                        </span>
 
                         <h2>
-                            R$ 299,90
+                            Inteligência para o seu conforto térmico.
                         </h2>
 
+                        <p>
+                            Conheça nossa roupa inteligente e acessórios
+                            para manter seu sistema funcionando.
+                        </p>
+
                         <button
-                            class="btn-principal"
-                            onclick="adicionarCarrinho()">
-                            ADICIONAR AO CARRINHO
+                            class="botao-principal"
+                            id="ver-produto"
+                        >
+                            Conhecer produto
+                        </button>
+
+                    </div>
+
+                    <img
+                        src="./blusa-temp-roup.jpeg"
+                        alt="Blusa Temp.Roup"
+                    >
+
+                </div>
+
+
+                <h3 class="titulo-produtos">
+                    Produtos disponíveis
+                </h3>
+
+
+                <div class="produtos-grid">
+
+
+                    <!-- PRODUTO 1 -->
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img
+                                src="./blusa-temp-roup.jpeg"
+                                alt="Blusa Inteligente Temp.Roup"
+                            >
+
+                        </div>
+
+                        <div class="produto-info">
+
+                            <span class="produto-categoria">
+                                ROUPA INTELIGENTE
+                            </span>
+
+                            <h3>
+                                Blusa Inteligente Temp.Roup
+                            </h3>
+
+                            <p>
+                                Conforto térmico com tecnologia inteligente.
+                            </p>
+
+                            <strong class="produto-preco">
+                                R$ 299,90
+                            </strong>
+
+                            <button
+                                class="botao-principal adicionar-produto"
+                                data-produto="blusa"
+                            >
+                                Adicionar ao carrinho
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 2 -->
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem icone-produto">
+                            🔋
+                        </div>
+
+                        <div class="produto-info">
+
+                            <span class="produto-categoria">
+                                RENOVAÇÃO
+                            </span>
+
+                            <h3>
+                                Bateria Temp.Roup
+                            </h3>
+
+                            <p>
+                                Bateria para substituição do sistema.
+                            </p>
+
+                            <strong class="produto-preco">
+                                R$ 79,90
+                            </strong>
+
+                            <button
+                                class="botao-principal adicionar-produto"
+                                data-produto="bateria"
+                            >
+                                Comprar bateria
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 3 -->
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem icone-produto">
+                            👕
+                        </div>
+
+                        <div class="produto-info">
+
+                            <span class="produto-categoria">
+                                COLEÇÃO
+                            </span>
+
+                            <h3>
+                                Regata Smart
+                            </h3>
+
+                            <p>
+                                Modelo esportivo e confortável.
+                            </p>
+
+                            <strong class="produto-preco">
+                                R$ 249,90
+                            </strong>
+
+                            <button
+                                class="botao-principal adicionar-produto"
+                                data-produto="regata"
+                            >
+                                Adicionar ao carrinho
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 4 -->
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem icone-produto">
+                            ⚙️
+                        </div>
+
+                        <div class="produto-info">
+
+                            <span class="produto-categoria">
+                                TECNOLOGIA
+                            </span>
+
+                            <h3>
+                                Módulo de renovação
+                            </h3>
+
+                            <p>
+                                Componentes para manutenção da Temp.Roup.
+                            </p>
+
+                            <strong class="produto-preco">
+                                R$ 99,90
+                            </strong>
+
+                            <button
+                                class="botao-principal adicionar-produto"
+                                data-produto="modulo"
+                            >
+                                Comprar
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PERFIL
+            ================================================== -->
+
+            <section id="tela-perfil" class="tela">
+
+                <div class="cabecalho-secao">
+
+                    <div>
+                        <h2>Perfil</h2>
+                        <p>Gerencie suas informações e preferências.</p>
+                    </div>
+
+                    <button class="botao-secundario">
+                        Editar perfil
+                    </button>
+
+                </div>
+
+
+                <div class="perfil-grid">
+
+                    <div class="card perfil-principal">
+
+                        <div class="perfil-avatar">
+                            👤
+                        </div>
+
+                        <h2 id="perfil-nome">
+                            Usuário Temp.Roup
+                        </h2>
+
+                        <p id="perfil-email">
+                            usuario@temproup.com
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <h3>Preferências</h3>
+
+                        <div class="preferencia">
+                            <span>🌡️ Unidade de temperatura</span>
+                            <strong>°C</strong>
+                        </div>
+
+                        <div class="preferencia">
+                            <span>🔔 Notificações</span>
+                            <strong>Ativadas</strong>
+                        </div>
+
+                        <div class="preferencia">
+                            <span>🌐 Idioma</span>
+                            <strong>Português</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONFIGURAÇÕES
+            ================================================== -->
+
+            <section id="tela-configuracoes" class="tela">
+
+                <div class="cabecalho-secao">
+
+                    <div>
+                        <h2>Configurações</h2>
+                        <p>Configure sua experiência Temp.Roup.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="configuracoes-lista">
+
+                    <div class="config-item">
+
+                        <div>
+                            <strong>🔵 Bluetooth</strong>
+                            <p>Conexão com o ESP32 da roupa.</p>
+                        </div>
+
+                        <button id="config-bluetooth">
+                            Configurar
+                        </button>
+
+                    </div>
+
+
+                    <div class="config-item">
+
+                        <div>
+                            <strong>🌡️ Temperatura</strong>
+                            <p>Defina suas preferências térmicas.</p>
+                        </div>
+
+                        <button>
+                            Configurar
+                        </button>
+
+                    </div>
+
+
+                    <div class="config-item">
+
+                        <div>
+                            <strong>🔔 Notificações</strong>
+                            <p>Receba alertas da sua Temp.Roup.</p>
+                        </div>
+
+                        <button>
+                            Ativadas
+                        </button>
+
+                    </div>
+
+
+                    <div class="config-item">
+
+                        <div>
+                            <strong>🛡️ Segurança</strong>
+                            <p>Alertas e proteção do sistema.</p>
+                        </div>
+
+                        <button>
+                            Ver
                         </button>
 
                     </div>
@@ -510,220 +1081,192 @@
             </section>
 
 
-            <!-- ============================= -->
-            <!-- SUGESTÕES -->
-            <!-- ============================= -->
+            <!-- =================================================
+                 CARRINHO
+            ================================================== -->
 
-            <section
-                id="sugestoes"
-                class="secao">
+            <section id="tela-carrinho" class="tela">
 
-                <h2>💡 Sugestões</h2>
+                <div class="cabecalho-secao">
 
-                <p>
-                    Receba recomendações de roupas
-                    de acordo com a temperatura.
-                </p>
+                    <div>
+                        <h2>Meu Carrinho</h2>
+                        <p>Confira seus produtos antes da compra.</p>
+                    </div>
 
-                <div class="cards">
+                </div>
+
+
+                <div class="carrinho-layout">
 
                     <div class="card">
-                        🌡️
+
+                        <div id="itens-carrinho">
+
+                            <div class="carrinho-vazio">
+                                🛒
+                                <h3>Seu carrinho está vazio</h3>
+                                <p>
+                                    Adicione produtos pela Loja Temp.Roup.
+                                </p>
+
+                                <button
+                                    class="botao-principal"
+                                    data-tela="loja"
+                                >
+                                    Ir para a loja
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card resumo-carrinho">
+
+                        <h3>Resumo da compra</h3>
+
+                        <div>
+                            <span>Subtotal</span>
+                            <strong id="subtotal-carrinho">
+                                R$ 0,00
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Frete</span>
+                            <strong id="frete-carrinho">
+                                R$ 0,00
+                            </strong>
+                        </div>
+
+                        <hr>
+
+                        <div class="total-carrinho">
+                            <span>Total</span>
+                            <strong id="total-carrinho">
+                                R$ 0,00
+                            </strong>
+                        </div>
+
+                        <button
+                            class="botao-principal"
+                            id="finalizar-compra"
+                        >
+                            Finalizar compra
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUGESTÕES
+            ================================================== -->
+
+            <section id="tela-sugestoes" class="tela">
+
+                <div class="cabecalho-secao">
+
+                    <div>
+                        <h2>Sugestões</h2>
+                        <p>
+                            Recomendações baseadas nas condições térmicas.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="sugestoes-grid">
+
+                    <div class="sugestao-card frio">
+
+                        <span>❄️</span>
+
                         <h3>Está frio?</h3>
+
                         <p>
-                            Recomendamos roupas que
-                            ajudam a manter o calor.
+                            Aumente a temperatura desejada e utilize
+                            o modo de aquecimento.
                         </p>
+
+                        <button class="botao-secundario">
+                            Aquecer
+                        </button>
+
                     </div>
 
-                    <div class="card">
-                        ☀️
-                        <h3>Está quente?</h3>
-                        <p>
-                            Recomendamos roupas leves
-                            e respiráveis.
-                        </p>
-                    </div>
 
-                    <div class="card">
-                        🌤️
+                    <div class="sugestao-card ameno">
+
+                        <span>🌤️</span>
+
                         <h3>Temperatura amena</h3>
-                        <p>
-                            Veja opções adequadas
-                            para o clima.
-                        </p>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ============================= -->
-            <!-- MINHA ROUPA -->
-            <!-- ============================= -->
-
-            <section
-                id="minha-roupa"
-                class="secao">
-
-                <h2>👕 Minha Roupa</h2>
-
-                <p>
-                    Organize suas roupas e consulte
-                    quais são adequadas para cada temperatura.
-                </p>
-
-                <button class="btn-principal">
-                    ADICIONAR ROUPA
-                </button>
-
-            </section>
-
-
-            <!-- ============================= -->
-            <!-- ESTATÍSTICAS -->
-            <!-- ============================= -->
-
-            <section
-                id="estatisticas"
-                class="secao">
-
-                <h2>📊 Estatísticas</h2>
-
-                <p>
-                    Acompanhe informações sobre
-                    temperaturas e uso das roupas.
-                </p>
-
-                <div class="cards">
-
-                    <div class="card">
-
-                        <h3>
-                            Temperatura média
-                        </h3>
 
                         <p>
-                            Consulte o histórico
-                            de temperaturas.
+                            O modo automático pode ajudar a manter
+                            uma temperatura confortável.
                         </p>
+
+                        <button class="botao-secundario">
+                            Automático
+                        </button>
 
                     </div>
 
-                    <div class="card">
 
-                        <h3>
-                            Roupas mais usadas
-                        </h3>
+                    <div class="sugestao-card quente">
 
-                        <p>
-                            Veja quais peças
-                            você utiliza mais.
-                        </p>
+                        <span>☀️</span>
 
-                    </div>
-
-                    <div class="card">
-
-                        <h3>
-                            Recomendações
-                        </h3>
+                        <h3>Está quente?</h3>
 
                         <p>
-                            Histórico das sugestões
-                            recebidas pelo aplicativo.
+                            Diminua a temperatura desejada e utilize
+                            o modo de resfriamento.
                         </p>
+
+                        <button class="botao-secundario">
+                            Resfriar
+                        </button>
 
                     </div>
 
                 </div>
 
-            </section>
 
+                <div class="card explicacao-sugestoes">
 
-            <!-- ============================= -->
-            <!-- CONTATO -->
-            <!-- ============================= -->
+                    <h3>
+                        💡 Como as sugestões funcionam?
+                    </h3>
 
-            <section
-                id="contato"
-                class="secao">
+                    <p>
+                        Os sensores da Temp.Roup enviam informações
+                        para o ESP32. O aplicativo utiliza esses dados
+                        para apresentar recomendações de acordo com
+                        as condições térmicas.
+                    </p>
 
-                <h2>Contato</h2>
-
-                <p>
-                    Entre em contato com a equipe Temp.Roup.
-                </p>
-
-                <p>
-                    📧 contato@temproup.com
-                </p>
+                </div>
 
             </section>
 
         </main>
 
-    </section>
+    </div>
 
 
-    <!-- ============================= -->
-    <!-- CARRINHO -->
-    <!-- ============================= -->
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
 
-    <aside
-        id="carrinho"
-        class="carrinho">
+    <script src="./script.js"></script>
 
-        <div class="carrinho-cabecalho">
-
-            <h2>🛒 Seu Carrinho</h2>
-
-            <button
-                onclick="fecharCarrinho()">
-                ✕
-            </button>
-
-        </div>
-
-        <div
-            id="itens-carrinho"
-            class="itens-carrinho">
-        </div>
-
-        <div class="carrinho-total">
-
-            <strong>Total:</strong>
-
-            <span id="total-carrinho">
-                R$ 0,00
-            </span>
-
-        </div>
-
-        <button
-            class="btn-principal"
-            onclick="finalizarCompra()">
-            FINALIZAR COMPRA
-        </button>
-
-    </aside>
-
-
-    <!-- ============================= -->
-    <!-- MENSAGENS -->
-    <!-- ============================= -->
-
-    <div id="mensagem"></div>
-
-
-    <!-- JAVASCRIPT -->
-
-    <script src="script.js"></script>
-    
-<script>
-navigator.serviceWorker.register("./service-worker.js");
-</script>
 </body>
-
 </html>
